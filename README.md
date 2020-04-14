@@ -219,7 +219,11 @@ $ g++ -Wall -pedantic -g -O0 -std=c++11 -o BinaryTreeTest BinaryTreeTest.cpp Bin
 $ ./BinaryTreeTest > balance_factors.tsv 2> tree.nwk
 ```
 
-You can then open ``balance_factors.tsv`` in any text editor or spreadsheet viewer, and you can open ``tree.nwk`` in a tree viewing tool like [phylotree](http://phylotree.hyphy.org/).
+You can then open ``balance_factors.tsv`` in any text editor or spreadsheet viewer, and you can open ``tree.nwk`` in a tree viewing tool like [IcyTree](https://icytree.org/). To use IcyTree, you can do the following:
+
+1. Load the tree (File → Load from file... → select your tree file)
+2. By default, it [ladderizes](http://blog.phytools.org/2014/09/new-function-to-ladderize-tree-with.html) the tree, which we don't want because we need to check balance factors, so "left" and "right" have meaning in our context. We need to disable it (Style → Node sorting → Unsorted)
+3. By default, it only displays leaf labels, so show internal nodes too (Style → Internal node text → Label)
 
 ## Part 4: Red-Black Trees (25 points)
 The last self-balancing BST we discussed is the [Red-Black Tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree). The Red-Black Tree is less strict with regard to balance than is the AVL Tree, but the Red-Black Tree is still guaranteed to be O(log *n*) in height.
