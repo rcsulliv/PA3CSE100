@@ -238,7 +238,7 @@ Its edge list is the following:
 15 -> 20
 ```
 
-Create a file called ``4a.txt`` (case-sensitive) in the root directory of this repository (i.e., in the same folder as [``README.md``](README.md)) containing a single integer that, when inserted into this Red-Black Tree, will result in exactly **1 red node** after the insertion is complete.
+Create a file called ``4a.txt`` (case-sensitive) in the root directory of this repository (i.e., in the same folder as [``README.md``](README.md)) containing a single integer that, when inserted into this Red-Black Tree, will result in exactly **2 red nodes** after the insertion is complete.
 
 ### Task 4b: Create ``4b.txt`` (5 points)
 Imagine we have the following Red-Black Tree:
