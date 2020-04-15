@@ -96,7 +96,26 @@ class BinaryTree {
         }
 
         /**
-         * Return an unordered_map mapping node labels to balance factors
+         * Return an unordered_map mapping node labels to balance factors,
+         * where "balance factor" is defined as right height minus left height
+         *
+         * For example, in the following binary tree:
+         *
+         *         (5)
+         *        /   \
+         *      (2)    (6)
+         *     /   \
+         *   (1)   (3)
+         *            \
+         *            (4)
+         *
+         * You would return an unordered_set bf with the following (key, value) pairs:
+         *     - bf[1] =  0 because the balance factor of node 1 is 0 - 0 =  0
+         *     - bf[2] =  1 because the balance factor of node 2 is 2 - 1 =  1
+         *     - bf[3] =  1 because the balance factor of node 3 is 1 - 0 =  1
+         *     - bf[4] =  0 because the balance factor of node 4 is 0 - 0 =  0
+         *     - bf[5] = -2 because the balance factor of node 5 is 1 - 3 = -2
+         *     - bf[6] =  0 because the balance factor of node 6 is 0 - 0 =  0
          */
         unordered_map<int,int> balanceFactors();
 
