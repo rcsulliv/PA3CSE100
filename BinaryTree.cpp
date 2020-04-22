@@ -4,22 +4,21 @@
  * 
  * Implement balanceFactors() correctly
  */
-int balanceHelper(BinaryTree::Node * curr, int * nodeNum, unordered_map<int, int> * balenceMap);
+int balanceHelper(BinaryTree::Node * curr,  unordered_map<int, int> * balenceMap);
 
 unordered_map<int,int> BinaryTree::balanceFactors() {
     /* YOUR CODE HERE */
     unordered_map<int, int> balenceMap;
-    int nodeNum = 0;
-    balanceHelper(root, &nodeNum, &balenceMap);   
+    balanceHelper(root, &balenceMap);   
     return balenceMap;
 }
 
-int balanceHelper(BinaryTree::Node * curr, int * nodeNum, unordered_map<int, int> * balenceMap){
+int balanceHelper(BinaryTree::Node * curr,  unordered_map<int, int> * balenceMap){
     if( curr == NULL){
         return 0;
     }
-    int leftHeight = balanceHelper(curr->leftChild, nodeNum,balenceMap);
-    int rightHeight = balanceHelper(curr->rightChild, nodeNum, balenceMap);
+    int leftHeight = balanceHelper(curr->leftChild, balenceMap);
+    int rightHeight = balanceHelper(curr->rightChild,  balenceMap);
     int subtreeHeight;
     if( leftHeight>rightHeight){
         subtreeHeight = leftHeight + 1;
@@ -28,8 +27,7 @@ int balanceHelper(BinaryTree::Node * curr, int * nodeNum, unordered_map<int, int
     }else{
         subtreeHeight = rightHeight + 1;
     }
-    (*nodeNum)++;
-    (*balenceMap)[*nodeNum] = rightHeight - leftHeight;
+    (*balenceMap)[curr->label] = rightHeight - leftHeight;
     
     return subtreeHeight;
 }
