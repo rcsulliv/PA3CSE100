@@ -19,8 +19,13 @@ int balanceHelper(BinaryTree::Node * curr, int * nodeNum, unordered_map<int, int
     }
     int leftHeight = balanceHelper(curr->leftChild, nodeNum,balenceMap);
     int rightHeight = balanceHelper(curr->rightChild, nodeNum, balenceMap);
-
-    int subtreeHeight = leftHeight + rightHeight + 1;
+    int subtreeHeight;
+    if( leftHeight>rightHeight){
+        subtreeHeight = leftHeight + 1;
+    }else{
+        subtreeHeight = rightHeight + 1;
+    }
+    
     (*balenceMap)[*nodeNum] = subtreeHeight-1;
     (*nodeNum)++;
     return subtreeHeight;
