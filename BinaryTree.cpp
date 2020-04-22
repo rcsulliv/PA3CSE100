@@ -3,10 +3,7 @@
 /**
  * Implement balanceFactors() correctly
  */
-
-
-
-int balanceHelper(BinaryTree::Node * curr, int * nodeNum, unordered_map<int, int> *balenceMap);
+int balanceHelper(BinaryTree::Node * curr, int * nodeNum, unordered_map<int, int> * balenceMap);
 
 unordered_map<int,int> BinaryTree::balanceFactors() {
     /* YOUR CODE HERE */
@@ -16,7 +13,7 @@ unordered_map<int,int> BinaryTree::balanceFactors() {
     return balenceMap;
 }
 
-int balanceHelper(BinaryTree::Node * curr, int * nodeNum, unordered_map<int, int> *balenceMap){
+int balanceHelper(BinaryTree::Node * curr, int * nodeNum, unordered_map<int, int> * balenceMap){
     if( curr == NULL){
         return 0;
     }
@@ -24,7 +21,7 @@ int balanceHelper(BinaryTree::Node * curr, int * nodeNum, unordered_map<int, int
     int rightHeight = balanceHelper(curr->rightChild, nodeNum, balenceMap);
 
     int subtreeHeight = leftHeight + rightHeight + 1;
-    (*nodeNum)++;
+    (*nodeNum)+=1;
     (*balenceMap)[*nodeNum] = subtreeHeight;
     return subtreeHeight;
 }
