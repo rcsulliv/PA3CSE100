@@ -5,4 +5,6 @@
  */
 unordered_map<int,int> BinaryTree::balanceFactors() {
     /* YOUR CODE HERE */
+    int total = 0;
+    
 }
