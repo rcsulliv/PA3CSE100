@@ -3,8 +3,28 @@
 /**
  * Implement balanceFactors() correctly
  */
+
+
+
+int balanceHelper(BinaryTree::Node * curr, int * nodeNum, unordered_map<int, int> *balenceMap);
+
 unordered_map<int,int> BinaryTree::balanceFactors() {
     /* YOUR CODE HERE */
-    int total = 0;
-    
+    unordered_map<int, int> balenceMap;
+    int nodeNum = 0;
+    balanceHelper(root, &nodeNum, &balenceMap);   
+    return balenceMap;
+}
+
+int balanceHelper(BinaryTree::Node * curr, int * nodeNum, unordered_map<int, int> *balenceMap){
+    if( curr == NULL){
+        return 0;
+    }
+    int leftHeight = balanceHelper(curr->leftChild, nodeNum,balenceMap);
+    int rightHeight = balanceHelper(curr->rightChild, nodeNum, balenceMap);
+
+    int subtreeHeight = leftHeight + rightHeight + 1;
+    (*nodeNum)++;
+    (*balenceMap)[*nodeNum] = subtreeHeight;
+    return subtreeHeight;
 }
